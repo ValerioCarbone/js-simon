@@ -79,12 +79,13 @@ function numbersChecker (randomN, guessedN, whereToStamp) {
             rightNumbers.push(guessedN[i])
         }
     }
-    
-    if (rightNumbers == [] ){
+    console.log(rightNumbers)
+
+    if (rightNumbers.length === 0 ){
         return whereToStamp.innerHTML = ('Non hai indovinato neanche un numero!!')
     }
 
-    else if (!rightNumbers == []){
+    else {
         return whereToStamp.innerHTML = (`Hai indovinato ${rightNumbers.length} numeri! Ecco quelli che ti sei ricordato correttamente: ${rightNumbers}`)
     }
 }
