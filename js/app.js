@@ -16,9 +16,9 @@ setTimeout(function(){
 setTimeout(function(){
     const numbersGuessedArray = insertNumbers(5)
 
-    numbersChecker(randomNumbersGenerated, numbersGuessedArray)
+    numbersChecker(randomNumbersGenerated, numbersGuessedArray, contentDOMElement)
 
-}, 10000)
+}, 35000)
 
 
 
@@ -65,27 +65,26 @@ function insertNumbers(timesToAsk){
             insertedNumbers.push(guessedNumber)
         }
     }
-    return insertedNumbers
+    return insertedNumbers 
 }
 
 // - Confrontare i 5 numeri che l'utente ha inserito con i 5 precedentemente generati
-// - Creare un alert con che dica quanti e quali numeri sono giusti. 
+// - Creare un alert con che dica quanti e quali numeri sono giusti 
 
-function numbersChecker (randomN, guessedN,) {
+function numbersChecker (randomN, guessedN, whereToStamp) {
     rightNumbers = []
-    for (let i = 0; rightNumbers.length < randomN.length; i++){
+    for (let i = 0; i < randomN.length; i++){
         
         if (randomN.includes(guessedN[i])){
-            randomN.push(guessedN[i])
+            rightNumbers.push(guessedN[i])
         }
-        console.log('Numeri indovinati' + rightNumbers)
     }
     
     if (rightNumbers == [] ){
-        return alert('Non hai indovinato neanche un numero!!')
+        return whereToStamp.innerHTML = ('Non hai indovinato neanche un numero!!')
     }
 
     else if (!rightNumbers == []){
-        return alert(`Hai indovinato ${rightNumbers.lenght} numeri! Ecco quelli ti sei ricordato correttamente: ${rightNumbers}`)
+        return whereToStamp.innerHTML = (`Hai indovinato ${rightNumbers.length} numeri! Ecco quelli che ti sei ricordato correttamente: ${rightNumbers}`)
     }
 }
