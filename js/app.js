@@ -20,7 +20,7 @@ setTimeout(function () {
 
         numbersChecker(randomNumbersGenerated, numbersGuessedArray, contentDOMElement)
 
-    }, 30000)
+    }, 1000)
 
 }, 5000)
 
@@ -62,7 +62,9 @@ function insertNumbers(timesToAsk) {
 
         let guessedNumber = parseInt(prompt('Inserisci uno dei numeri precedenti'))
 
-        if (!insertedNumbers.includes(guessedNumber)) {
+        if (isNaN(guessedNumber) || (guessedNumber < 1 || guessedNumber > 100)) {
+            guessedNumber = parseInt(prompt('Inserisci uno dei numeri precedenti'))
+        } else if (!insertedNumbers.includes(guessedNumber)) {
             insertedNumbers.push(guessedNumber)
         }
     }
@@ -80,6 +82,7 @@ function numbersChecker(randomN, guessedN, whereToStamp) {
             rightNumbers.push(guessedN[i])
         }
     }
+    console.log(rightNumbers)
 
     if (rightNumbers.length === 0) {
         return whereToStamp.innerHTML = ('Non hai indovinato neanche un numero!!')
