@@ -7,27 +7,25 @@ let contentDOMElement = document.querySelector('.content')
 
 contentDOMElement.innerHTML = randomNumbersGenerated
 
-setTimeout(function(){
+setTimeout(function () {
     contentDOMElement.innerHTML = ('')
 
-    setTimeout(function(){
-    const numbersGuessedArray = insertNumbers(5)
+    // - Creare un timer che duri 30 secondi
+    // - Terminati i 30 secondi una funzione genererà 5 volte un prompt che chiede all'utente di inserire un numero
+    setTimeout(function () {
 
-    numbersChecker(randomNumbersGenerated, numbersGuessedArray, contentDOMElement)
+        // - Confrontare i 5 numeri che l'utente ha inserito con i 5 precedentemente generati
+        // - Creare un alert con che dica quanti e quali numeri sono giusti.     
+        const numbersGuessedArray = insertNumbers(5)
 
-}, 30000)
+        numbersChecker(randomNumbersGenerated, numbersGuessedArray, contentDOMElement)
+
+    }, 30000)
 
 }, 5000)
 
-// - Creare un timer che duri 30 secondi(+ 5 per la memorizzazione dei numeri)
 
 
-
-
-
-// - Terminati i 30 secondi una funzione genererà 5 volte un prompt che chiede all'utente di inserire un numero
-// - Confrontare i 5 numeri che l'utente ha inserito con i 5 precedentemente generati
-// - Creare un alert con che dica quanti e quali numeri sono giusti. 
 
 
 // FUNZIONI 
@@ -58,32 +56,32 @@ function getRandomIntInclusive(min, max) {
 
 // - Terminati i 30 secondi una funzione genererà 5 volte un prompt che chiede all'utente di inserire un numero
 
-function insertNumbers(timesToAsk){
+function insertNumbers(timesToAsk) {
     insertedNumbers = []
-    for (let i = 0; insertedNumbers.length < timesToAsk; i++){
-        
-        let guessedNumber =  parseInt(prompt('Inserisci uno dei numeri precedenti'))
-        
+    for (let i = 0; insertedNumbers.length < timesToAsk; i++) {
+
+        let guessedNumber = parseInt(prompt('Inserisci uno dei numeri precedenti'))
+
         if (!insertedNumbers.includes(guessedNumber)) {
             insertedNumbers.push(guessedNumber)
         }
     }
-    return insertedNumbers 
+    return insertedNumbers
 }
 
 // - Confrontare i 5 numeri che l'utente ha inserito con i 5 precedentemente generati
 // - Creare un alert con che dica quanti e quali numeri sono giusti 
 
-function numbersChecker (randomN, guessedN, whereToStamp) {
+function numbersChecker(randomN, guessedN, whereToStamp) {
     rightNumbers = []
-    for (let i = 0; i < randomN.length; i++){
-        
-        if (randomN.includes(guessedN[i])){
+    for (let i = 0; i < randomN.length; i++) {
+
+        if (randomN.includes(guessedN[i])) {
             rightNumbers.push(guessedN[i])
         }
     }
 
-    if (rightNumbers.length === 0 ){
+    if (rightNumbers.length === 0) {
         return whereToStamp.innerHTML = ('Non hai indovinato neanche un numero!!')
     }
 
