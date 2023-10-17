@@ -20,7 +20,7 @@ setTimeout(function () {
 
         numbersChecker(randomNumbersGenerated, numbersGuessedArray, contentDOMElement)
 
-    }, 1000)
+    }, 30000)
 
 }, 5000)
 
