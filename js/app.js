@@ -2,23 +2,26 @@
 
 const randomNumbersGenerated = getRandomNumbers(1, 100, 5)
 
-// - Mostarre i 5 numeri casuali
+// - Mostrare i 5 numeri casuali
 let contentDOMElement = document.querySelector('.content')
 
 contentDOMElement.innerHTML = randomNumbersGenerated
 
 setTimeout(function(){
     contentDOMElement.innerHTML = ('')
-}, 5000)
 
-// - Creare un timer che duri 30 secondi(+ 5 per la memorizzazione dei numeri)
-
-setTimeout(function(){
+    setTimeout(function(){
     const numbersGuessedArray = insertNumbers(5)
 
     numbersChecker(randomNumbersGenerated, numbersGuessedArray, contentDOMElement)
 
-}, 35000)
+}, 30000)
+
+}, 5000)
+
+// - Creare un timer che duri 30 secondi(+ 5 per la memorizzazione dei numeri)
+
+
 
 
 
@@ -79,7 +82,6 @@ function numbersChecker (randomN, guessedN, whereToStamp) {
             rightNumbers.push(guessedN[i])
         }
     }
-    console.log(rightNumbers)
 
     if (rightNumbers.length === 0 ){
         return whereToStamp.innerHTML = ('Non hai indovinato neanche un numero!!')
