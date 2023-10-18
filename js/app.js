@@ -82,7 +82,6 @@ function numbersChecker(randomN, guessedN, whereToStamp) {
             rightNumbers.push(guessedN[i])
         }
     }
-    console.log(rightNumbers)
 
     if (rightNumbers.length === 0) {
         return whereToStamp.innerHTML = ('Non hai indovinato neanche un numero!!')
