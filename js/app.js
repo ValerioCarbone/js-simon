@@ -10,14 +10,14 @@ contentDOMElement.innerHTML = randomNumbersGenerated
 setTimeout(function () {
     contentDOMElement.innerHTML = ('')
 
-    // - Creare un timer che duri 30 secondi
-    // - Terminati i 30 secondi una funzione genererà 5 volte un prompt che chiede all'utente di inserire un numero
     setTimeout(function () {
 
-        // - Confrontare i 5 numeri che l'utente ha inserito con i 5 precedentemente generati
-        // - Creare un alert con che dica quanti e quali numeri sono giusti.     
+        // - Creare un timer che duri 30 secondi
+        // - Terminati i 30 secondi una funzione genererà 5 volte un prompt che chiede all'utente di inserire un numero    
         const numbersGuessedArray = insertNumbers(5)
 
+        // - Confrontare i 5 numeri che l'utente ha inserito con i 5 precedentemente generati
+        // - Stampare quanti e quali numeri sono giusti.
         numbersChecker(randomNumbersGenerated, numbersGuessedArray, contentDOMElement)
 
     }, 30000)
@@ -57,7 +57,9 @@ function getRandomIntInclusive(min, max) {
 // - Terminati i 30 secondi una funzione genererà 5 volte un prompt che chiede all'utente di inserire un numero
 
 function insertNumbers(timesToAsk) {
+
     insertedNumbers = []
+
     for (let i = 0; insertedNumbers.length < timesToAsk; i++) {
 
         let guessedNumber = parseInt(prompt('Inserisci uno dei numeri precedenti'))
@@ -75,7 +77,9 @@ function insertNumbers(timesToAsk) {
 // - Creare un alert con che dica quanti e quali numeri sono giusti 
 
 function numbersChecker(randomN, guessedN, whereToStamp) {
+
     rightNumbers = []
+
     for (let i = 0; i < randomN.length; i++) {
 
         if (randomN.includes(guessedN[i])) {
